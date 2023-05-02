@@ -36,3 +36,15 @@
     border-top: 1px solid #eee;
     padding: 100px;
 }
+
+.tab-list-item.active {
+    background-color: #7FCCE3;
+}
+
+.tab-contents-item {
+    display: none;
+}
+
+.tab-contents-item.show {
+    display: block;
+}
