@@ -32,3 +32,48 @@ DOM要素を取得
 コンテンツ
 初期で表示してる（予約・購入）のshowクラスを外す
 クリックされたタブメニューに該当するコンテンツにshowクラスを付与
+
+## 実装で詰まったこと
+
+・クリックしたタブに該当するコンテンツの同期
+
+## コード解説
+
+- for文で繰り返し処理を実装している。
+for(let i = 0; i < tablist.length; i++) {
+  tablist[i].addEventListener('click', tabChange);
+}
+
+条件式 (let i = 0; i < tablist.length; i++) 
+
+let i = 0;
+→ 変数iに0が定義されてる
+
+i < tablist.length
+→ タブの数（3つ）だけ繰り返し、この条件式がtrueの間ループ処理が行われる
+
+i++
+→ ループ処理がが1回行われるごとに更新される
+
+tablist[i].addEventListener('click', tabChange);
+→ タブのi番目をクリックしたときにtabChange関数を実行する
+
+- タブを配列風オブジェクトで定義
+const aryTabs = Array.prototype.slice.call(tablist);
+
+①Array.prototype.slice.call
+→ slice メソッドを呼び出すことで、配列風オブジェクトやコレクションを新しい配列に変換する
+
+sliceメソッド
+→ 配列の一部を start から end （end は含まれない）までの範囲で、選択した新しい配列オブジェクトにシャドーコピー。
+
+callメソッド
+→ ここでは、(tablist)を配列風オブジェクトに結合している
+
+② Array.from(tablist);
+→ 反復可能オブジェクトや配列風オブジェクトからシャローコピーされた、新しい Array インスタンスを生成する
+
+document.querySelectorAll()の返り値としてNodeListが用いられ、Array.from（）メソットでArryに変換できる。
+
+- クリックしたタブの配列番号を取得
+
