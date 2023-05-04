@@ -1,7 +1,6 @@
 'use strict';
 
 const tablist = document.querySelectorAll('.tab-list-item')
-console.log(tablist);
 const tabContent = document.querySelectorAll('.tab-contents-item');
 
 for(let i = 0; i < tablist.length; i++) {
@@ -20,9 +19,7 @@ function tabChange() {
   document.querySelectorAll('.show')[0].classList.remove('show');
   
   // タブを配列風オブジェクトで定義
-  // const aryTabs = Array.prototype.slice.call(tablist);
   const aryTabs = Array.from(tablist);
-  console.log(aryTabs);
  
   // クリックしたタブの配列番号を取得
   const index = aryTabs.indexOf(this);

@@ -76,4 +76,7 @@ callメソッド
 document.querySelectorAll()の返り値としてNodeListが用いられ、Array.from（）メソットでArryに変換できる。
 
 - クリックしたタブの配列番号を取得
+aryTabs.indexOf(this);
+
+indexOfで配列の検索を行う。結果として返ってくるのは「配列の何番目の要素であるか」
 
